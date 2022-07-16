@@ -4,9 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/kevin/AndroidStudioProjects/appmovil2/app/src/main/res/drawable/paciente.xml" value="0.157" />
-        <entry key="..\:/Users/kevin/AndroidStudioProjects/appmovil2/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/kevin/AndroidStudioProjects/appmovil2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/kevin/AndroidStudioProjects/appmovil2/app/src/main/res/layout/activity_main2.xml" value="0.18085106382978725" />
         <entry key="..\:/Users/kevin/AndroidStudioProjects/appmovil2/app/src/main/res/menu/menu.xml" value="0.20833333333333334" />
-        <entry key="..\:/Users/kevin/AndroidStudioProjects/appmovil2/app/src/main/res/menu/menu1.xml" value="0.33" />
+        <entry key="..\:/Users/kevin/AndroidStudioProjects/appmovil2/app/src/main/res/menu/menu1.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -14,10 +14,6 @@
         tools:ignore="MenuTitle" />
     <!-- estaticos-->
 
-    <item android:id="@+id/tres"
-        app:showAsAction="never"
-        android:title="Ajustes" />
-
     <item android:id="@+id/cuatro"
         app:showAsAction="never"
         android:title="Perfil" />
@@ -26,8 +22,6 @@
         app:showAsAction="never"
         android:title="Foto" />
 
-    <item android:id="@+id/seis"
-        app:showAsAction="never"
-        android:title="Salir" />
+
 
 </menu>

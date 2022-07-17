@@ -7,7 +7,7 @@
     tools:context=".Login">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_texto_email"
@@ -61,19 +61,21 @@
         app:layout_constraintTop_toBottomOf="@id/editTextTextPassword"
         >
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:text="@string/login_boton_ingresar"
+            android:onClick="BotonLogin"
             />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonRegistrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="@string/login_boton_registrar"
+            android:onClick="BotonRegistrar"
             />
 
 

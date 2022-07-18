@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">app movil</string>
+
+    <string name="login_texto_email">E-mail</string>
+    <string name="login_texto_contra">Contraseña</string>
+
+    <string name="login_boton_ingresar">Ingresar</string>
+    <string name="login_boton_registrar">Registrar</string>
+
 </resources>

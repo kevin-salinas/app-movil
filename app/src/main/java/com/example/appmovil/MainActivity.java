@@ -55,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.cinco:
-                Toast.makeText(MainActivity.this,"Fotos",Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, PhotoActivity.class);
+                startActivity(i);
                 return true;
 
             default:

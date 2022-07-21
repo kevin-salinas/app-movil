@@ -3,13 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-    <item android:id="@+id/uno"
-        app:showAsAction="never"
-        android:title="Perfil" />
 
     <item android:id="@+id/dos"
         app:showAsAction="never"
-        android:title="Foto" />
+        android:title="Salir" />
 
 
 </menu>

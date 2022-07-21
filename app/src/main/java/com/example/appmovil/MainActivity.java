@@ -64,12 +64,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.uno:
-                Intent e = new Intent(MainActivity.this, perfil.class);
-                startActivity(e);
-                return true;
-            case R.id.dos:
-                return true;
+            case R.id.dos : {
+                finish();
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -115,4 +112,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
 }

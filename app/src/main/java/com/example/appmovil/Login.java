@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         dataSource = new UsuarioDataSource(this);
 
@@ -69,19 +69,13 @@ public class Login extends AppCompatActivity {
             dataSource.closeDB();
             return;
         }
-
-        Ingresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(Login.this, MainActivity.class);
-                startActivity(i);
-            }
-        });
-
-        //TODO: HACER ALGO SI EL LOGIN ESTA BIEN
+        
         Toast.makeText(Login.this,"INGRESO CORRECTO",Toast.LENGTH_SHORT).show();
         dataSource.closeDB();
-        return;
+
+        Intent i = new Intent(Login.this, MainActivity.class);
+        startActivity(i);
+
 
     }
 

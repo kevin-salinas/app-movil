@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.appmovil.Mascota;
+
 import java.util.List;
 
 public class MascotasDataSource {
@@ -26,12 +28,15 @@ public class MascotasDataSource {
         Log.i(TAG, "Database cerrada");
     }
 
-    public void registrarMascota(String nombre, Integer edad, String animal, String alimento) {
-        dbHelper.registrarMascota(database, nombre, edad, animal, alimento);
-        return;
+    public void registrarMascota(Mascota mascota) {
+        dbHelper.registrarMascota(database, mascota);
     }
 
-    public List<String> getMascotaByNombre(String nombre) {
+    public Mascota getMascotaByNombre(String nombre) {
         return dbHelper.getMascotaByNombre(database, nombre);
+    }
+
+    public List<Mascota> getAllMascotas() {
+        return dbHelper.getAllMascotas(database);
     }
 }

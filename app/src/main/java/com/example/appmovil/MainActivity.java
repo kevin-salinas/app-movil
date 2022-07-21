@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, Login.class);
+                Intent i = new Intent(MainActivity.this, RegistrarMascota.class);
                 startActivity(i);
             }
         });
@@ -65,19 +65,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()) {
+
             case R.id.uno:
-                Toast.makeText(MainActivity.this, "Agenda", Toast.LENGTH_SHORT).show();
+                Intent e = new Intent(MainActivity.this, perfil.class);
+                startActivity(e);
                 return true;
 
             case R.id.dos:
-                Toast.makeText(MainActivity.this, "video", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.cuatro:
-                Toast.makeText(MainActivity.this, "Perfil", Toast.LENGTH_SHORT).show();
-                return true;
-
-            case R.id.cinco:
                 Intent i = new Intent(MainActivity.this, PhotoActivity.class);
                 startActivity(i);
                 return true;

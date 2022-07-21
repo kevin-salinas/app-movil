@@ -7,4 +7,14 @@
     <string name="login_boton_ingresar">Ingresar</string>
     <string name="login_boton_registrar">Registrar</string>
 
+    <string name="titulo">Registrar mascota</string>
+    <string name="titulo2">Mi Perfil</string>
+    <string name="nombre">Nombre</string>
+    <string name="edad">Edad</string>
+    <string name="animal">Tipo de Animal</string>
+    <string name="alimento">Alimento</string>
+    <string name="btnAceptar">Aceptar</string>
+    <string name="btnOk">OK</string>
+
+
 </resources>

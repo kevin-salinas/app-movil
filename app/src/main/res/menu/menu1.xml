@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    >
 
     <item android:id="@+id/uno"
-        android:icon="@drawable/paciente"
-        app:showAsAction="ifRoom"
-        tools:ignore="MenuTitle" />
-
-    <item android:id="@+id/dos"
-        android:icon="@drawable/perfil"
-        app:showAsAction="ifRoom"
-        tools:ignore="MenuTitle" />
-    <!-- estaticos-->
-
-    <item android:id="@+id/cuatro"
         app:showAsAction="never"
         android:title="Perfil" />
 
-    <item android:id="@+id/cinco"
+    <item android:id="@+id/dos"
         app:showAsAction="never"
         android:title="Foto" />
-
 
 
 </menu>

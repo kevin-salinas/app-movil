@@ -32,10 +32,29 @@ public class Login extends AppCompatActivity {
         String email = eEmail.getText().toString();
         String password = ePassword.getText().toString();
 
+        if (email.equals("")) {
+            Toast.makeText(Login.this,"EL E-MAIL NO PUEDE ESTAR VACIO",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(email);
+
+        if(!(m.matches())) {
+            Toast.makeText(Login.this,"EL E-MAIL ES INVALIDO",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(password.equals("") || password.length() < 5) {
+            Toast.makeText(Login.this,"LA CONTRASEÑA DEBE TENER UN MINIMO DE 5 CARACTERES",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         dataSource.openDB();
 
         if ( !( dataSource.esEmailValido(email)) ) {
-            Toast.makeText(Login.this,"USUARIO Y CONTRASEÑA INCORRECTA",Toast.LENGTH_SHORT).show();
+            Toast.makeText(Login.this,"E-MAIL Y CONTRASEÑA INCORRECTA",Toast.LENGTH_SHORT).show();
             dataSource.closeDB();
             return;
         }
@@ -57,6 +76,25 @@ public class Login extends AppCompatActivity {
     public void BotonRegistrar(View view) {
         String email = eEmail.getText().toString();
         String password = ePassword.getText().toString();
+
+        if (email.equals("")) {
+            Toast.makeText(Login.this,"EL E-MAIL NO PUEDE ESTAR VACIO",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
+        java.util.regex.Matcher m = p.matcher(email);
+
+        if(!(m.matches())) {
+            Toast.makeText(Login.this,"EL E-MAIL ES INVALIDO",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(password.equals("") || password.length() < 5) {
+            Toast.makeText(Login.this,"LA CONTRASEÑA DEBE TENER UN MINIMO DE 5 CARACTERES",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         dataSource.openDB();
 

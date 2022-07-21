@@ -73,6 +73,7 @@ public class RegistrarMascota extends AppCompatActivity {
         i.putExtra("edad", edad);
         i.putExtra("animal", animal);
         i.putExtra("alimento", alimento);
+        i.putExtra("foto", foto);
 
         startActivity(i);
     }

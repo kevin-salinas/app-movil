@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appmovil.database.MascotasDataSource;
+
+import java.io.ByteArrayOutputStream;
 import java.util.Objects;
 
 public class PhotoActivity extends AppCompatActivity {
@@ -37,6 +40,15 @@ public class PhotoActivity extends AppCompatActivity {
             Bundle extras = Objects.requireNonNull(data).getExtras();
             Bitmap bitmap = (Bitmap) extras.get("data");
             petPhotoImageView.setImageBitmap(bitmap);
+
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+            byte[] byteArray = bos.toByteArray();
+
+            // TODO: incorporar en formulario.
+            MascotasDataSource mascotasDataSource = new MascotasDataSource(this);
+            mascotasDataSource.openDB();
+            mascotasDataSource.registrarMascota(new Mascota("Bobby", 2, "Perro", "Dog Chow", byteArray));
         }
     }
 }

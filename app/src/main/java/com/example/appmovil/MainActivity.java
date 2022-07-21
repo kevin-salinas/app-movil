@@ -1,7 +1,10 @@
 package com.example.appmovil;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,10 +19,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.appmovil.database.MascotasDataSource;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     Button Siguiente;
-    String[] pets;
+    List<Mascota> mascotas;
     RecyclerView petsRecyclerView;
 
 
@@ -29,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Siguiente = (Button) findViewById(R.id.Siguiente);
-
         Siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,17 +45,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        pets = new String[] {"Bobby", "Lucho"};  // TODO: obtener de la base de datos.
+        MascotasDataSource mascotasDataSource = new MascotasDataSource(this);
+        mascotasDataSource.openDB();
+        mascotas = mascotasDataSource.getAllMascotas();
+        mascotasDataSource.closeDB();
+
         petsRecyclerView = findViewById(R.id.petsRecyclerView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        petsRecyclerView.setLayoutManager(linearLayoutManager);
+        petsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         petsRecyclerView.setAdapter(new PetsAdapter());
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu1, menu);
-        return true; //
+        return true;
     }
 
     @Override
@@ -88,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return pets.length;
+            return mascotas.size();
         }
 
         @Override
@@ -112,10 +122,12 @@ public class MainActivity extends AppCompatActivity {
 
             // TODO: usar datos de la mascota.
             public void print(int position) {
-                photoImageView.setImageDrawable(getResources().getDrawable(R.drawable.perfil));
-                nameTextView.setText(pets[position]);
-                ageAndTypeTextView.setText("Perro, " + pets[position].length() + " años");
-                foodTextView.setText("Alimento");
+                Mascota mascota = mascotas.get(position);
+                Bitmap foto = BitmapFactory.decodeByteArray(mascota.foto, 0, mascota.foto.length);
+                photoImageView.setImageBitmap(foto);
+                nameTextView.setText(mascota.nombre);
+                ageAndTypeTextView.setText(mascota.animal + ", " + mascota.edad + " años");
+                foodTextView.setText(mascota.alimento);
             }
         }
     }

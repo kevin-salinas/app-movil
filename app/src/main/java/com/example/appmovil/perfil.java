@@ -36,13 +36,13 @@ public class perfil extends AppCompatActivity {
 
     private void MostrarRegistros(){
         Bundle datos = this.getIntent().getExtras();
-        String nombre = datos.getString("name");
-        String edad = datos.getString("age");
-        String animal = datos.getString("anima");
-        String alimento = datos.getString("food");
+        String nombre = datos.getString("nombre");
+        int edad = datos.getInt("edad");
+        String animal = datos.getString("animal");
+        String alimento = datos.getString("alimento");
 
         tvNombre.setText(nombre);
-        tvEdad.setText(edad);
+        tvEdad.setText(String.valueOf(edad));
         tvAnimal.setText(animal);
         tvAlimento.setText(alimento);
     }

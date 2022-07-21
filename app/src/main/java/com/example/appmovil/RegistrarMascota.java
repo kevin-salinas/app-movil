@@ -20,9 +20,10 @@ import java.util.Objects;
 public class RegistrarMascota extends AppCompatActivity {
     public static final int TOMA_FOTO = 1;
 
-    Button Aceptar, TomarFoto;
-    EditText nombre, edad, animal, alimento;
+    Button aceptarButton, tomarFotoButton;
+    EditText nombreEditText, edadEditText, animalEditText, alimentoEditText;
     ImageView fotoMascotaImageView;
+    byte[] foto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,37 +31,16 @@ public class RegistrarMascota extends AppCompatActivity {
         setContentView(R.layout.activity_registrar_mascota);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
-        nombre = (EditText) findViewById(R.id.editNombre);
-        edad = (EditText) findViewById(R.id.editEdad);
-        animal = (EditText) findViewById(R.id.editAnimal);
-        alimento = (EditText) findViewById(R.id.editAlimento);
-        Aceptar = (Button) findViewById(R.id.btnAceptar);
-        TomarFoto = (Button) findViewById(R.id.btnTomarFoto);
+        nombreEditText = findViewById(R.id.editNombre);
+        edadEditText = findViewById(R.id.editEdad);
+        animalEditText = findViewById(R.id.editAnimal);
+        alimentoEditText = findViewById(R.id.editAlimento);
+        aceptarButton = findViewById(R.id.btnAceptar);
+        tomarFotoButton = findViewById(R.id.btnTomarFoto);
         fotoMascotaImageView = findViewById(R.id.fotoMascotaImageView);
 
-        Aceptar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String name = nombre.getText().toString();
-                String age = edad.getText().toString();
-                String anima = animal.getText().toString();
-                String food = alimento.getText().toString();
-                Intent i = new Intent(RegistrarMascota.this, perfil.class);
-                i.putExtra("name", name);
-                i.putExtra("age", age);
-                i.putExtra("anima", anima);
-                i.putExtra("food", food);
-                startActivity(i);
-            }
-        });
-
-        TomarFoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, TOMA_FOTO);
-            }
-        });
+        aceptarButton.setOnClickListener(this::onAceptar);
+        tomarFotoButton.setOnClickListener(this::onTomarFoto);
     }
 
     @Override
@@ -74,12 +54,31 @@ public class RegistrarMascota extends AppCompatActivity {
 
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
-            byte[] byteArray = bos.toByteArray();
-
-            // TODO: incorporar en formulario.
-            MascotasDataSource mascotasDataSource = new MascotasDataSource(this);
-            mascotasDataSource.openDB();
-            mascotasDataSource.registrarMascota(new Mascota("Bobby", 2, "Perro", "Dog Chow", byteArray));
+            foto = bos.toByteArray();
         }
+    }
+
+    public void onAceptar(View view) {
+        String nombre = nombreEditText.getText().toString();
+        int edad = Integer.parseInt(edadEditText.getText().toString());
+        String animal = animalEditText.getText().toString();
+        String alimento = alimentoEditText.getText().toString();
+
+        MascotasDataSource mascotasDataSource = new MascotasDataSource(this);
+        mascotasDataSource.openDB();
+        mascotasDataSource.registrarMascota(new Mascota(nombre, edad, animal, alimento, foto));
+
+        Intent i = new Intent(RegistrarMascota.this, perfil.class);
+        i.putExtra("nombre", nombre);
+        i.putExtra("edad", edad);
+        i.putExtra("animal", animal);
+        i.putExtra("alimento", alimento);
+
+        startActivity(i);
+    }
+
+    public void onTomarFoto(View view) {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(intent, TOMA_FOTO);
     }
 }

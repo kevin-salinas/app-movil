@@ -19,16 +19,11 @@
             android:exported="false" />
         <activity
             android:name=".RegistrarMascota"
-            android:exported="false" />
-        <activity
-            android:name=".PhotoActivity"
             android:exported="false"
-            android:label="Foto de la mascota"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity" />
+            android:exported="false" />
         <activity
             android:name=".MainActivity2"
             android:exported="false" />

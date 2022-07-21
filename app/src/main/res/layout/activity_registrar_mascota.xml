@@ -7,78 +7,87 @@
     tools:context=".RegistrarMascota">
 
 
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="89dp"
-        android:layout_marginEnd="90dp"
-        android:text="@string/titulo"
-        android:textSize="@dimen/tamaño_letra"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/titulo"
-        android:layout_marginTop="6dp"
-        android:orientation="vertical"
-        android:layout_gravity="center">
-
-        <EditText
-            android:id="@+id/editNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/espacio_top"
-            android:hint="@string/nombre"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/editEdad"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="@dimen/espacio_top"
-            android:hint="@string/edad"
-            android:inputType="number" />
-
-        <EditText
-            android:id="@+id/editAnimal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/espacio_top"
-            android:hint="@string/animal"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/editAlimento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:hint="Nombre de alimento"
-            android:inputType="text" />
-
-        <Button
-            android:id="@+id/btnAceptar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btnAceptar" />
-    </LinearLayout>
-
     <Button
-        android:id="@+id/regresar"
+        android:id="@+id/btnAceptar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="7dp"
-        android:text="Regresar"
+        android:text="@string/btnAceptar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_vertical"
+            android:layout_marginTop="6dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="89dp"
+                android:layout_marginEnd="90dp"
+                android:text="@string/titulo"
+                android:textSize="@dimen/tamaño_letra"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espacio_top"
+                android:hint="@string/nombre"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/editEdad"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="@dimen/espacio_top"
+                android:hint="@string/edad"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/editAnimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/espacio_top"
+                android:hint="@string/animal"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/editAlimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:hint="Nombre de alimento"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/btnTomarFoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btnTomarFoto" />
+
+            <ImageView
+                android:id="@+id/fotoMascotaImageView"
+                android:layout_width="match_parent"
+                android:layout_height="389dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </RelativeLayout>

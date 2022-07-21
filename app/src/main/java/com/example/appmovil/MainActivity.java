@@ -63,24 +63,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-
         switch (item.getItemId()) {
-
             case R.id.uno:
                 Intent e = new Intent(MainActivity.this, perfil.class);
                 startActivity(e);
                 return true;
-
             case R.id.dos:
-                Intent i = new Intent(MainActivity.this, PhotoActivity.class);
-                startActivity(i);
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
-
         }
-
     }
 
     private class PetsAdapter extends RecyclerView.Adapter<PetsAdapter.PetsAdapterHolder> {
@@ -102,9 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
         class PetsAdapterHolder extends RecyclerView.ViewHolder {
             ImageView photoImageView;
-            TextView nameTextView;
-            TextView ageAndTypeTextView;
-            TextView foodTextView;
+            TextView nameTextView, ageAndTypeTextView, foodTextView;
 
             public PetsAdapterHolder(@NonNull View view) {
                 super(view);
